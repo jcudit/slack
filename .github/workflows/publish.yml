@@ -1,0 +1,21 @@
+name: Publish To GitHub Packages
+
+on:
+  push:
+    branches:
+      - publish
+
+jobs:
+  build-and-publish-head:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/publish'
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build and Publish head Docker image
+      uses: VaultVulp/gp-docker-action@1.0.1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        image-name: slack
+        image-tag: head
