@@ -73,3 +73,7 @@ dist
 build/
 
 .vscode/
+
+config/terraform/.terraform
+config/terraform/**tfstate*
+config/terraform/secrets*
